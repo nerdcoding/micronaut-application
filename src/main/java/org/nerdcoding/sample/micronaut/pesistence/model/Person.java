@@ -2,6 +2,8 @@ package org.nerdcoding.sample.micronaut.pesistence.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+import io.micronaut.core.annotation.Introspected;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,6 +16,7 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "Person")
+@Introspected // Render objects as json using Jackson without using reflection.
 public class Person {
 
     @Id
