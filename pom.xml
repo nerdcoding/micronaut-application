@@ -17,6 +17,7 @@
         <release.version>11</release.version>
 
         <micronaut.version>2.1.2</micronaut.version>
+        <micronaut.data.version>2.1.1</micronaut.data.version>
         <postgres.driver.version>42.2.18</postgres.driver.version>
         <exec.mainClass>org.nerdcoding.sample.micronaut.Application</exec.mainClass>
     </properties>
@@ -69,6 +70,11 @@
         <dependency>
             <groupId>io.micronaut.sql</groupId>
             <artifactId>micronaut-hibernate-jpa</artifactId>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.micronaut.data</groupId>
+            <artifactId>micronaut-data-hibernate-jpa</artifactId>
             <scope>compile</scope>
         </dependency>
         <dependency>
@@ -136,6 +142,11 @@
                             <artifactId>micronaut-validation</artifactId>
                             <version>${micronaut.version}</version>
                         </path>
+                        <path>
+                            <groupId>io.micronaut.data</groupId>
+                            <artifactId>micronaut-data-processor</artifactId>
+                            <version>${micronaut.data.version}</version>
+                        </path>
                     </annotationProcessorPaths>
                     <compilerArgs>
                         <arg>-Amicronaut.processing.group=micronaut.application</arg>
@@ -159,6 +170,11 @@
                                     <groupId>io.micronaut</groupId>
                                     <artifactId>micronaut-validation</artifactId>
                                     <version>${micronaut.version}</version>
+                                </path>
+                                <path>
+                                    <groupId>io.micronaut.data</groupId>
+                                    <artifactId>micronaut-data-processor</artifactId>
+                                    <version>${micronaut.data.version}</version>
                                 </path>
                             </annotationProcessorPaths>
                         </configuration>

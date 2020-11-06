@@ -1,32 +1,29 @@
 package org.nerdcoding.sample.micronaut.service;
 
 import org.nerdcoding.sample.micronaut.pesistence.model.Person;
+import org.nerdcoding.sample.micronaut.pesistence.repository.PersonRepository;
 
+import javax.inject.Inject;
 import javax.inject.Singleton;
-import java.time.LocalDate;
-import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
 @Singleton
 public class PersonService {
 
+    private final PersonRepository personRepository;
+
+    @Inject
+    public PersonService(final PersonRepository personRepository) {
+        this.personRepository = personRepository;
+    }
+
     public List<Person> findAllPersons() {
-        return Collections.singletonList(createTestPerson());
+        return personRepository.findAll();
     }
 
     public Optional<Person> findPersonByLastName(final String lastName) {
-        return Optional.of(createTestPerson());
-    }
-
-    private Person createTestPerson() {
-        final Person person = new Person();
-        person.setFirstName("Heide");
-        person.setLastName("Witzka");
-        person.setEmail("heide@witzka@gmail.com");
-        person.setDayOfBirth(LocalDate.now());
-
-        return person;
+        return personRepository.findByLastName(lastName);
     }
 
 }

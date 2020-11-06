@@ -11,6 +11,7 @@ import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Get;
 import io.micronaut.http.annotation.PathVariable;
 
+import javax.inject.Inject;
 import java.util.List;
 
 @Controller("/persons")
@@ -20,6 +21,7 @@ public class PersonController {
 
     private final PersonService personService;
 
+    @Inject
     public PersonController(final PersonService personService) {
         this.personService = personService;
     }

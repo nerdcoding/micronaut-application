@@ -1,29 +1,38 @@
 package org.nerdcoding.sample.micronaut.pesistence.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 import java.time.LocalDate;
 import java.util.Objects;
 
-//@Entity
-//@Table(name = "Person")
+@Entity
+@Table(name = "Person")
 public class Person {
 
-    //@Id
-    //@SequenceGenerator(name = "pk_sequence_generator", sequenceName = "PK_SEQUENCE", allocationSize = 1)
-    //@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "pk_sequence_generator")
-    //@Column(name = "ID", nullable = false)
+    @Id
+    @SequenceGenerator(name = "pk_sequence_generator", sequenceName = "PK_SEQUENCE", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "pk_sequence_generator")
+    @Column(name = "ID", nullable = false)
     private Long id;
 
-    //@Column(name= "FIRST_NAME", nullable = false)
+    @Column(name= "FIRST_NAME", nullable = false)
     private String firstName;
 
-    //@Column(name= "LAST_NAME", nullable = false)
+    @Column(name= "LAST_NAME", nullable = false)
     private String lastName;
 
-    //@Column(name= "EMAIL", nullable = false, unique = true)
+    @Column(name= "EMAIL", nullable = false, unique = true)
     private String email;
 
-    //@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-    //@Column(name= "DAY_OF_BIRTH")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    @Column(name= "DAY_OF_BIRTH")
     private LocalDate dayOfBirth;
 
     public Long getId() {
