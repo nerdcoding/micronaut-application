@@ -1,17 +1,22 @@
-package micronaut.application.controller;
+package org.nerdcoding.sample.micronaut.controller;
+
+import org.nerdcoding.sample.micronaut.pesistence.model.Person;
+import org.nerdcoding.sample.micronaut.service.PersonService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import io.micronaut.http.HttpResponse;
 import io.micronaut.http.MediaType;
 import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Get;
 import io.micronaut.http.annotation.PathVariable;
-import micronaut.application.pesistence.model.Person;
-import micronaut.application.service.PersonService;
 
 import java.util.List;
 
 @Controller("/persons")
 public class PersonController {
+
+    private static final Logger LOG = LoggerFactory.getLogger(PersonController.class);
 
     private final PersonService personService;
 
@@ -21,6 +26,8 @@ public class PersonController {
 
     @Get(produces = MediaType.APPLICATION_JSON)
     public HttpResponse<List<Person>> findAllPersons() {
+        LOG.debug("REST endpoint '/persons' called");
+
         return HttpResponse
                 .ok()
                 .body(personService.findAllPersons());

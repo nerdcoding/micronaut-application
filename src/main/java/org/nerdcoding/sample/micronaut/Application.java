@@ -1,4 +1,4 @@
-package micronaut.application;
+package org.nerdcoding.sample.micronaut;
 
 import io.micronaut.runtime.Micronaut;
 

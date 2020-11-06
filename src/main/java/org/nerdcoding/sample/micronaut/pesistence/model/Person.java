@@ -1,4 +1,4 @@
-package micronaut.application.pesistence.model;
+package org.nerdcoding.sample.micronaut.pesistence.model;
 
 import java.time.LocalDate;
 import java.util.Objects;

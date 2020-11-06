@@ -1,6 +1,6 @@
-package micronaut.application.service;
+package org.nerdcoding.sample.micronaut.service;
 
-import micronaut.application.pesistence.model.Person;
+import org.nerdcoding.sample.micronaut.pesistence.model.Person;
 
 import javax.inject.Singleton;
 import java.time.LocalDate;

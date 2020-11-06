@@ -17,7 +17,8 @@
         <release.version>11</release.version>
 
         <micronaut.version>2.1.2</micronaut.version>
-        <exec.mainClass>micronaut.application.Application</exec.mainClass>
+        <postgres.driver.version>42.2.18</postgres.driver.version>
+        <exec.mainClass>org.nerdcoding.sample.micronaut.Application</exec.mainClass>
     </properties>
 
     <repositories>
@@ -58,6 +59,26 @@
             <artifactId>micronaut-runtime</artifactId>
             <scope>compile</scope>
         </dependency>
+
+        <!-- Database -->
+        <dependency>
+            <groupId>io.micronaut.sql</groupId>
+            <artifactId>micronaut-jdbc-hikari</artifactId>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.micronaut.sql</groupId>
+            <artifactId>micronaut-hibernate-jpa</artifactId>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>${postgres.driver.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+
+
 
         <!-- Logging -->
         <dependency>

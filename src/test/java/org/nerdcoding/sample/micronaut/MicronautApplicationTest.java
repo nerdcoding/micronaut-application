@@ -1,4 +1,4 @@
-package micronaut.application;
+package org.nerdcoding.sample.micronaut;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

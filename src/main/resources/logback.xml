@@ -9,6 +9,8 @@
         </encoder>
     </appender>
 
+    <logger name="org.nerdcoding.sample.micronaut" level="debug" />
+
     <root level="info">
         <appender-ref ref="STDOUT" />
     </root>
