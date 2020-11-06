@@ -1,5 +1,7 @@
 micronaut:
   application:
     name: micronaut-application
-
+  server:
+    port: 8080
+    context-path: /micronaut-application/v1
 
