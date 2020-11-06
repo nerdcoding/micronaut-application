@@ -1,0 +1,23 @@
+= Application build
+
+== Build & run application on JVM
+
+To application uses `JDK 11` and `Maven 3.6.3`. In order to run the application traditionally on an JVM a normal maven
+build could be executed with an `mvn clean package`. After a successful build the JAR file
+`target/micronaut-application-0.1.jar` was created. To start the application execute
+`java -jar target/micronaut-application-0.1.jar`.
+
+== Build & run application as native image
+
+We are using a Docker image based on `oracle/graalvm-ce:20.2.0-java11`. In an container of that Docker image the native 
+image of our application will be created. Following another Docker container is created which is responsible to run 
+the previously build application. This second Docker container get the native image and starts the application.
+
+There is a `docker-build.sh` which executes the process:
+1. Building native image in a Docker container
+2. Running native image in another Docker container
+
+```
+./docker-build.sh
+docker run -p 8080:8080 micronaut-application
+``` 
